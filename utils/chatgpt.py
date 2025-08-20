@@ -1,7 +1,7 @@
 import os
 import openai
 
-openai.api_key = os.getenv("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")
+openai.api_key = os.getenv("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")
 
 def get_strategy(prompt):
     print("🧠 get_strategy 開始")
