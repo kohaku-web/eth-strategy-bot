@@ -1,5 +1,4 @@
 import requests
-import traceback
 
 def get_market_data():
     print("🔍 get_market_data 開始")
@@ -11,18 +10,12 @@ def get_market_data():
 
         bids = data["data"]["bids"]
         asks = data["data"]["asks"]
-
-        # デバッグ用に最初の要素を出力
-        print("🟩 bids[0]:", bids[0])
-        print("🟥 asks[0]:", asks[0])
-
-        # bids/asks はリストの中に [価格, 数量] の形式のリストが入ってる
-        price = (float(bids[0][0]) + float(asks[0][0])) / 2
+        price = float(bids[0][0])  # 最良買い気配を取得
         print("💰 現在価格:", price)
-
         return price, bids, asks
 
     except Exception as e:
+        import traceback
         print("🚨 get_market_data で例外発生:", e)
         traceback.print_exc()
-        raise
+        raise  # 上位に再スロー
