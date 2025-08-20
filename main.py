@@ -54,14 +54,19 @@ def build_prompt(price, bids, asks):
 
 # ③ ChatGPTで判断
 def get_strategy(prompt):
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "あなたはプロの仮想通貨トレーダーです。"},
-            {"role": "user", "content": prompt}
-        ],
-        max_tokens=100,
-        temperature=0.3,
-    )
-    strategy = response['choices'][0]['message']['content'].strip()
-    return strategy
+    print("🌐 ChatGPTへ送信開始")
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "あなたはプロの仮想通貨トレーダーです"},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7
+        )
+        print("✅ ChatGPTからレスポンス取得成功")
+        strategy = response['choices'][0]['message']['content']
+        return strategy
+    except Exception as e:
+        print("❌ ChatGPT通信エラー:", e)
+        raise e
