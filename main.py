@@ -60,7 +60,10 @@ def send_to_discord(message):
         "content": f"📊 **ETH/JPY 戦略通知**\n{message}"
     }
     res = requests.post(WEBHOOK_URL, json=payload)
-    print(f"🔁 Discord Response: {res.status_code} - {res.text}")
+    
+    print(f"🔁 Discord Response Status: {res.status_code}")
+    print(f"🔁 Discord Response Text: {res.text}")
+    
     if res.status_code == 204:
         print("✅ Discord通知 成功")
     else:
