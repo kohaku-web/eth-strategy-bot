@@ -54,7 +54,6 @@ def build_prompt(price, bids, asks):
 
 # ③ ChatGPTで判断
 def get_strategy(prompt):
-    print("③ get_strategy 実行")
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[
@@ -64,4 +63,5 @@ def get_strategy(prompt):
         max_tokens=100,
         temperature=0.3,
     )
-    strategy = response[']()
+    strategy = response['choices'][0]['message']['content'].strip()
+    return strategy
