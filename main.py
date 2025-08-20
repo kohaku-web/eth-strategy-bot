@@ -24,7 +24,9 @@ def main():
         print("✅ Discord送信 完了")
 
     except Exception as e:
+        import traceback
         print("❌ エラー発生：", e)
+        traceback.print_exc()
 
 if __name__ == "__main__":
     main()
