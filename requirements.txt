@@ -1,4 +1,2 @@
 openai
 requests
-# 依存ライブラリ
-git add . && git commit -m "Fix: ensure requirements.txt is deployed" && git push
