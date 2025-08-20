@@ -5,7 +5,7 @@ import openai
 openai.api_key = "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"
 
 # 🔔 Discord Webhook URLをここに貼ってください
-WEBHOOK_URL = "https://discordapp.com/api/webhooks/1407591919646937098/U4T-h85SzS5fX-9WJBfPKs5U23amYH0rgxTpDb4-aVjmXXjHo0XT5dq0Dc_sBMR7ReVg"
+WEBHOOK_URL = "https://discord.com/api/webhooks/1407591919646937098/U4T-h85SzS5fX-9WJBfPKs5U23amYH0rgxTpDb4-aVjmXXjHo0XT5dq0Dc_sBMR7ReVg"
 
 # ① GMOコインの価格と板データを取得
 def get_market_data():
@@ -60,10 +60,11 @@ def send_to_discord(message):
         "content": f"📊 **ETH/JPY 戦略通知**\n{message}"
     }
     res = requests.post(WEBHOOK_URL, json=payload)
+    print(f"🔁 Discord Response: {res.status_code} - {res.text}")
     if res.status_code == 204:
         print("✅ Discord通知 成功")
     else:
-        print("⚠️ Discord通知 失敗", res.text)
+        print("⚠️ Discord通知 失敗")
 
 # ⑤ 実行
 def main():
