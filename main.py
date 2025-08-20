@@ -3,10 +3,10 @@ import openai
 import traceback
 
 # 🔑 OpenAI APIキー
-openai.api_key = "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"  # ←自分のに戻して！
+openai.api_key = "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"
 
 # 🔔 Discord Webhook URL
-WEBHOOK_URL = "https://discordapp.com/api/webhooks/1407617625319538779/nbfVIuC_had2m_aZl693-oKLWqj80kPqA51Y_KkQfyxG8NtXaIipX-xByLcSUZKBglnc"  # ←自分のに戻して！
+WEBHOOK_URL = "https://discordapp.com/api/webhooks/1407617625319538779/nbfVIuC_had2m_aZl693-oKLWqj80kPqA51Y_KkQfyxG8NtXaIipX-xByLcSUZKBglnc"
 
 # ① 価格＆板データ取得
 def get_market_data():
