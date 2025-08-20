@@ -15,7 +15,8 @@ def get_market_data():
         print("🟩 bids[0]:", bids[0])
         print("🟥 asks[0]:", asks[0])
 
-        price = (float(bids[0][0]) + float(asks[0][0])) / 2
+        # ✅ 正しく辞書から取得
+        price = (float(bids[0]["price"]) + float(asks[0]["price"])) / 2
         print("💰 現在価格:", price)
 
         return price, bids, asks
